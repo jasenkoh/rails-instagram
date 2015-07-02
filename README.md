@@ -1,1 +1,4 @@
-# rails-instagram
+##ToDo:
+  - implement authentication
+  - implement likes
+  - implement comments
