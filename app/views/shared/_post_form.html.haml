@@ -1,0 +1,7 @@
+= simple_form_for @post, html: {class: 'form-horizontal', multipart: true} do |form|
+  .form-group
+    = form.input :image
+  .form-group.text-center
+    = form.input :caption
+  .form-group.text-center
+    = form.button :submit, class: 'btn-success'
