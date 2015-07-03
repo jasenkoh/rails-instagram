@@ -12,9 +12,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
 
-    if @post.valid?
+    if @post.save
       flash[:success] = 'Successfully created new post.'
       redirect_to posts_path
     else
