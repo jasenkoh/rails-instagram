@@ -4,7 +4,7 @@
       .post-head
         .avatar
           = image_tag p.user.avatar.url
-          %span= p.user.username
+          =link_to p.user.username, user_path(p.user.username)
         .posted-at
           %span= time_ago_in_words(p.created_at).to_s + ' ago'
       .image-center-block
