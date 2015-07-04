@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   resources :posts
-  devise_scope :user do
+
+  resources :users, only: [:following, :followers] do
+    member do
+      get :following, to: 'users/socials#following'
+      get :followers, to: 'users/socials#followers'
+    end
+  end
+
+  as :user do
     get ':username', to: 'users/sessions#show', as: 'user'
   end
+
+  resources :relationships, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

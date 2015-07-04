@@ -22,6 +22,9 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 20px;
 }
+.container {
+  width: 960px;
+}
 .navbar-brand {
   a {
     color: #125688;
@@ -97,4 +100,31 @@ body {
 }
 div.manage-post {
   margin: 15px;
+}
+.profile-page {
+  margin: 0 auto 30px;
+  padding: 40px 20px;
+  .profile-avatar img {
+    border-radius: 50%;
+    width: 180px;
+    margin-right: 40px
+  }
+  .profile-content {
+    clear: both;
+    margin-top: 30px;
+  }
+  .profile-info {
+    color: #4b4f54;
+    font-weight: 300;
+    width: 680px;
+    h3 {
+      font-size: 33px;
+    }
+    .btn-warning {
+      background: 0 0;
+      border-radius: 3px;
+      border: 1px solid #4090db;
+      color: #4090db;
+    }
+  }
 }
