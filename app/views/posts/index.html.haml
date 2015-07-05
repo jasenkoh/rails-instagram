@@ -4,10 +4,11 @@
       .post-head
         .avatar
           = image_tag p.user.avatar.url
-          =link_to p.user.username, user_path(p.user.username)
+          = link_to p.user.username, user_path(p.user.username)
         .posted-at
-          %span= time_ago_in_words(p.created_at).to_s + ' ago'
+          = link_to time_ago_in_words(p.created_at).to_s + ' ago', post_path(p)
       .image-center-block
-        =link_to (image_tag p.image.url(:medium), class:'img-responsive'), post_path(p)
+        = image_tag p.image.url(:medium), class:'img-responsive'
       %p.caption
+        = link_to p.user.username, user_path(p.user.username)
         = p.caption

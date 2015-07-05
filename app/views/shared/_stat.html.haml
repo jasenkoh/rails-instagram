@@ -5,10 +5,10 @@
         = @user.posts.count
       posts
     %li
-      %strong
+      %strong.followers-stat
         = @user.followers.count
       = link_to 'followers', followers_user_path(@user)
     %li
-      %strong
+      %strong.following-stat
         = @user.following.count
       = link_to 'following', following_user_path(@user)

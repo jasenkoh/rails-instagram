@@ -70,6 +70,10 @@ body {
       .posted-at {
         float: right;
         margin: 15px 0;
+        a {
+          color: #a5a7aa;
+          text-decoration: none;
+        }
       }
       .name {
         display: block;
