@@ -45,46 +45,42 @@ body {
   margin: 0 auto;
   max-width: 642px;
   width: 100%;
-}
-.post {
-  background-color: #fff;
-  border-color: #edeeee;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 1px;
-  margin-bottom: 60px;
-}
-.post-head {
-  height: 80px;
-  padding: 14px 20px;
-  color: #125688;
-  font-size: 15px;
-  line-height: 18px;
-  .avatar {
-    float: left;
-    width: 45%;
-    img {
-      width: 15%;
-      border-radius: 50%;
-      margin-right: 10px;
+  .post {
+    background-color: #fff;
+    border-color: #edeeee;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    margin-bottom: 60px;
+    .post-head {
+      height: 80px;
+      padding: 14px 20px;
+      color: #125688;
+      font-size: 15px;
+      line-height: 18px;
+      .avatar {
+        float: left;
+        width: 45%;
+        img {
+          width: 15%;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+      .posted-at {
+        float: right;
+        margin: 15px 0;
+      }
+      .name {
+        display: block;
+      }
+    }
+    .caption {
+      padding: 24px;
+      font-size: 15px;
+      line-height: 18px;
     }
   }
-  .posted-at {
-    float: right;
-    margin: 15px 0;
-  }
-  .name {
-    display: block;
-  }
-}
-.image {
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-}
-.caption {
-  padding: 24px;
-  font-size: 15px;
-  line-height: 18px;
 }
 .form-wrapper {
   width: 47%;
@@ -107,11 +103,18 @@ div.manage-post {
   .profile-avatar img {
     border-radius: 50%;
     width: 180px;
-    margin-right: 40px
+    margin-right: 40px;
   }
   .profile-content {
     clear: both;
     margin-top: 30px;
+    .post {
+      float: left;
+      margin-right: 20px;
+    }
+    .post:last-child {
+      margin-right: 0;
+    }
   }
   .profile-info {
     color: #4b4f54;
@@ -125,6 +128,27 @@ div.manage-post {
       border-radius: 3px;
       border: 1px solid #4090db;
       color: #4090db;
+    }
+    .bio {
+      margin: 10px 0;
+      line-height: 23px;
+    }
+    .stat {
+      font-size: 17px;
+      ul {
+        list-style: none;
+        padding: 0;
+        li {
+          float: left;
+          margin-right: 20px;
+          .stat {
+            font-weight: 600;
+          }
+        }
+        li:last-child {
+          margin-right: 0;
+        }
+      }
     }
   }
 }

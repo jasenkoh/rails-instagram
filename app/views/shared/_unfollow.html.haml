@@ -1,4 +1,2 @@
-= simple_form_for current_user.active_relationships.build do |f|
-  = hidden_field_tag :followed_id, @user.id
-  %div.follow-button
-    = f.submit :Unfollow, class: 'btn btn-success'
+%div.unfollow-block
+  %button.btn.btn-success.unfollow Unfollow

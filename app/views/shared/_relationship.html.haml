@@ -1,0 +1,6 @@
+-if @user != current_user
+  .relationship-block
+    -if current_user.following?(@user)
+      = render 'shared/unfollow'
+    -else
+      = render 'shared/follow'

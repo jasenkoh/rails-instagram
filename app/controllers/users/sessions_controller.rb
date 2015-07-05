@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def show
     @user = User.find_by username: params[:username]
-
+    @posts = @user.posts
     redirect_to root_path unless @user
   end
   # GET /resource/sign_in

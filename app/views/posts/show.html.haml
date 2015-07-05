@@ -6,7 +6,7 @@
   .post
     .post-head
       .name
-        Jasenko
+        = link_to @post.user.username, user_path(@post.user.username)
     .image-center-block
       = image_tag @post.image.url(:medium)
     %p.caption

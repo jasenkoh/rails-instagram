@@ -1,0 +1,14 @@
+%div.stat
+  %ul
+    %li
+      %strong
+        = @user.posts.count
+      posts
+    %li
+      %strong
+        = @user.followers.count
+      = link_to 'followers', followers_user_path(@user)
+    %li
+      %strong
+        = @user.following.count
+      = link_to 'following', following_user_path(@user)

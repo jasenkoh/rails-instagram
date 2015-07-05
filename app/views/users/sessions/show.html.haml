@@ -8,14 +8,18 @@
           %div.username
             %h1
               = @user.username
-            -if @user != current_user
-              -if current_user.following?(@user)
-                = render 'shared/unfollow'
-              -else
-                = render 'shared/follow'
+            = hidden_field_tag :followed_id, @user.id
+            -if current_user
+              = render 'shared/relationship'
           %div.bio
             %span
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          = render 'shared/stat'
     %div.profile-content
-      %span
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      %div.clearfix
+        -@posts.each do |p|
+          .post
+            .image-center-block
+              = link_to (image_tag p.image.url(:thumb), class:'img-responsive'), post_path(p)
+
+= javascript_include_tag 'relationships'
