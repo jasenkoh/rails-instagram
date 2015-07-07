@@ -41,4 +41,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   Paperclip.options[:command_path] = '/usr/bin/'
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_host_name: ENV['aws_host_name'],
+    s3_credentials: {
+      bucket: ENV['aws_bucket_name'],
+      access_key_id: ENV['aws_access_key_id'],
+      secret_access_key: ENV['aws_secret_access_key'],
+      region: ENV['aws_region']
+    }
+  }
 end
