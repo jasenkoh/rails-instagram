@@ -8821,9 +8821,8 @@ body {
   max-width: 642px;
   width: 100%;
 }
-
-/* line 50, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post {
+/* line 49, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post {
   background-color: #fff;
   border-color: #edeeee;
   border-style: solid;
@@ -8831,44 +8830,41 @@ body {
   border-width: 1px;
   margin-bottom: 60px;
 }
-
-/* line 58, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post-head {
+/* line 56, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head {
   height: 80px;
   padding: 14px 20px;
   color: #125688;
   font-size: 15px;
   line-height: 18px;
 }
-/* line 64, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post-head .avatar {
+/* line 62, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head .avatar {
   float: left;
   width: 45%;
 }
-/* line 67, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post-head .avatar img {
+/* line 65, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head .avatar img {
   width: 15%;
   border-radius: 50%;
   margin-right: 10px;
 }
-/* line 73, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post-head .posted-at {
+/* line 71, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head .posted-at {
   float: right;
   margin: 15px 0;
 }
-/* line 77, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.post-head .name {
+/* line 74, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head .posted-at a {
+  color: #a5a7aa;
+  text-decoration: none;
+}
+/* line 79, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .post-head .name {
   display: block;
 }
-
-/* line 81, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.image {
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-}
-
-/* line 85, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
-.caption {
+/* line 83, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.posts-wrapper .post .caption {
   padding: 24px;
   font-size: 15px;
   line-height: 18px;
@@ -8911,20 +8907,76 @@ div.manage-post {
   clear: both;
   margin-top: 30px;
 }
-/* line 117, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+/* line 116, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-content .post {
+  float: left;
+  margin-right: 20px;
+}
+/* line 120, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-content .post:last-child {
+  margin-right: 0;
+}
+/* line 124, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
 .profile-page .profile-info {
   color: #4b4f54;
   font-weight: 300;
   width: 680px;
 }
-/* line 121, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+/* line 128, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
 .profile-page .profile-info h3 {
   font-size: 33px;
 }
-/* line 124, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+/* line 131, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
 .profile-page .profile-info .btn-warning {
   background: 0 0;
   border-radius: 3px;
   border: 1px solid #4090db;
   color: #4090db;
+}
+/* line 137, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .bio {
+  margin: 10px 0;
+  line-height: 23px;
+}
+/* line 141, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .stat {
+  font-size: 17px;
+}
+/* line 143, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .stat ul {
+  list-style: none;
+  padding: 0;
+}
+/* line 146, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .stat ul li {
+  float: left;
+  margin-right: 20px;
+}
+/* line 149, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .stat ul li .stat {
+  font-weight: 600;
+}
+/* line 153, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.profile-page .profile-info .stat ul li:last-child {
+  margin-right: 0;
+}
+
+/* line 162, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.connected-people img {
+  float: left;
+  width: 50px;
+  border-radius: 50%;
+}
+/* line 167, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.connected-people a {
+  font-size: 23px;
+  margin-left: 20px;
+}
+/* line 171, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.connected-people button {
+  min-width: 80px;
+}
+/* line 174, /home/jasenko/Projects/instagram/app/assets/stylesheets/application.scss */
+.connected-people div {
+  margin-top: 10px;
 }
