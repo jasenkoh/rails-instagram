@@ -4,6 +4,12 @@ class Users::SessionsController < Devise::SessionsController
   def show
     @user = User.find_by username: params[:username]
     @posts = @user.posts
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @user, user: current_user }
+    end
+
     redirect_to root_path unless @user
   end
   # GET /resource/sign_in

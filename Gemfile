@@ -29,6 +29,8 @@ gem 'figaro'
 
 gem 'aws-sdk', '< 2.0'
 
+gem 'active_model_serializers', '< 0.9'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

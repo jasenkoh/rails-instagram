@@ -7,8 +7,10 @@
     %li
       %strong.followers-stat
         = @user.followers.count
-      = link_to 'followers', followers_user_path(@user)
+      = link_to 'Followers', '#peopleModal', 'data-toggle' => 'modal', 'data-title' => 'Followers'
     %li
       %strong.following-stat
         = @user.following.count
-      = link_to 'following', following_user_path(@user)
+      = link_to 'Following', '#peopleModal', 'data-toggle' => 'modal', 'data-title' => 'Following'
+
+= render 'shared/people_modal', :locals => {:title => ''}

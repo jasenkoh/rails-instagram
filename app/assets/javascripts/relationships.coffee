@@ -9,13 +9,13 @@ $(document).ready ->
   $('.relationship-block').on 'click', '.unfollow', ->
     editRelationship id,
       'DELETE',
-      "relationships/#{id}",
+      API.getRelationshipsUrl().format(id),
       DEC_FOLLOWERS
 
   $('.relationship-block').on 'click', '.follow', ->
     editRelationship id,
       'POST',
-      "relationships?followed_id=#{id}",
+      API.getRelationshipsUrl(true).format(id),
       INC_FOLLOWERS
 
 

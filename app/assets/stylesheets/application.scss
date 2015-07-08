@@ -156,3 +156,21 @@ div.manage-post {
     }
   }
 }
+
+.connected-people {
+  img {
+    float: left;
+    width: 50px;
+    border-radius: 50%;
+  }
+  a {
+    font-size: 23px;
+    margin-left: 20px;
+  }
+  button {
+    min-width: 80px;
+  }
+  div {
+    margin-top: 10px;
+  }
+}
