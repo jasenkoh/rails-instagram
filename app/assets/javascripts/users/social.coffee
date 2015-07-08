@@ -15,13 +15,6 @@ $(document).ready ->
     else
       Social.getConnectedPeople User.getId, API.getFollowingUrl().format(id), success
 
-@Social = {}
-
-Social.getConnectedPeople = (userId, url, onSuccess) ->
-  $.ajax
-    url: url
-    success: onSuccess
-
 success = (response) ->
   $('.connected-people').empty()
   $.each response, (_, value) ->
@@ -43,3 +36,10 @@ success = (response) ->
       .append(("#{value.username}")))
       .append($(link) if value.id isnt User.getId())
       )
+
+@Social = {}
+
+Social.getConnectedPeople = (userId, url, onSuccess) ->
+  $.ajax
+    url: url
+    success: onSuccess
