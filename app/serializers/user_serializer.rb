@@ -6,7 +6,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def following
-    @options[:user].following?(object)
+    @options[:user].following?(object) if @options[:user]
   end
 
 end

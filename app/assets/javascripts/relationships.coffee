@@ -1,38 +1,39 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-INC_FOLLOWERS = 1
-DEC_FOLLOWERS = -1
+@INC_FOLLOWERS = 1
+@DEC_FOLLOWERS = -1
 
 $(document).ready ->
   id = $('input[name=followed_id]').val()
   $('.relationship-block').on 'click', '.unfollow', ->
-    editRelationship id,
-      'DELETE',
-      API.getRelationshipsUrl().format(id),
-      DEC_FOLLOWERS
+    url = API.getRelationshipsUrl().format(id)
+
+    Relationship.editRelationship('DELETE', url).done((result) ->
+      updateFollowers DEC_FOLLOWERS, result
+    ).fail (result) ->
+      console.log result
+      alert 'Something bad happened'
 
   $('.relationship-block').on 'click', '.follow', ->
-    editRelationship id,
-      'POST',
-      API.getRelationshipsUrl(true).format(id),
-      INC_FOLLOWERS
+    url = API.getRelationshipsUrl(true).format(id)
 
+    Relationship.editRelationship('POST',url).done((result) ->
+      updateFollowers INC_FOLLOWERS, result
+    ).fail (result) ->
+      console.log result
+      alert 'Something bad happened'
 
-editRelationship = (id, method, url, followers) ->
+@Relationship = {}
+
+Relationship.editRelationship = (method, url) ->
   $.ajax
     url: url
     type: method
-    dataType: 'json'
-    success: (data) ->
-      console.log data
-    complete: (data) ->
-      if data.status == 200
-        $('.relationship-block').empty()
-        $('.relationship-block').append data.responseText
-        updateFollowers followers
 
-updateFollowers = (value) ->
+updateFollowers = (value, response) ->
+  $('.relationship-block').empty()
+  $('.relationship-block').append response
   followers = $('.followers-stat').text().trim()
   followers = parseInt followers
   value = parseInt value

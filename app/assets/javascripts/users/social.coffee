@@ -11,18 +11,42 @@ $(document).ready ->
     modal = $(this)
     modal.find('.modal-title').text(title)
     if title is 'Followers'
-      Social.getConnectedPeople User.getId, API.getFollowerUrl().format(id), success
+      Social.getConnectedPeople API.getFollowerUrl().format(id), success
     else
-      Social.getConnectedPeople User.getId, API.getFollowingUrl().format(id), success
+      Social.getConnectedPeople API.getFollowingUrl().format(id), success
+
+  $('.connected-people').on 'click', '.follow', (event), ->
+    id = $(this).parent().data('id')
+    url = API.getRelationshipsUrl(true).format(id)
+    element = $(this).parent()
+
+    Relationship.editRelationship('POST', url).done((response) ->
+      element.find('.follow').remove()
+      element.append response
+    ).fail (response) ->
+      console.log response
+      alert 'Something bad happened'
+
+  $('.connected-people').on 'click', '.unfollow', (event), ->
+    id = $(this).parent().data('id')
+    url = API.getRelationshipsUrl().format(id)
+    element = $(this).parent()
+
+    Relationship.editRelationship('DELETE', url).done((response) ->
+      element.find('.unfollow').remove()
+      element.append response
+    ).fail (response) ->
+      console.log response
+      alert 'Something bad happened'
 
 success = (response) ->
   $('.connected-people').empty()
   $.each response, (_, value) ->
     link = ''
     if value.following
-      link = "<button class='pull-right btn btn-success unfollow'>Unfollow</button>"
+      link = "<button class='btn btn-success unfollow'>Unfollow</button>"
     else
-      link = "<button class='pull-right btn btn-warning follow'>Follow</button>"
+      link = "<button class='btn btn-warning follow'>Follow</button>"
 
     html = "<div class='clearfix'>
       <img src=#{value.avatar} />
@@ -30,16 +54,18 @@ success = (response) ->
       </div>"
     $(html).find('div').append(link)
 
-    $('.connected-people').append($("<div class='clearfix'>")
+    $('.connected-people').append($("<div class='clearfix' data-id=#{value.id}>")
       .append($("<img src=#{value.avatar} />"))
       .append($("<a href='/#{value.username}'>")
       .append(("#{value.username}")))
-      .append($(link) if value.id isnt User.getId())
+      .append($(link) if User.getId() and value.id isnt User.getId())
       )
 
 @Social = {}
 
-Social.getConnectedPeople = (userId, url, onSuccess) ->
+Social.getConnectedPeople = (url, onSuccess) ->
   $.ajax
     url: url
     success: onSuccess
+    error: ->
+      alert 'Opps! Please try again.'

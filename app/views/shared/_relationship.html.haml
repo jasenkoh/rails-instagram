@@ -1,8 +1,10 @@
 -if @user != current_user
   .relationship-block
     -if current_user.following?(@user)
-      = render 'shared/unfollow'
+      %div.unfollow-block
+        = render 'shared/unfollow'
     -else
-      = render 'shared/follow'
+      %div.unfollow-block
+        = render 'shared/follow'
 -else
   = link_to 'Edit Profile', edit_user_registration_path(@user), class: 'btn btn-primary'

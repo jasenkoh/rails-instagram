@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:followed_id])
     current_user.follow(user) if user
     respond_to do |format|
-      format.js { render partial: 'shared/unfollow' }
+      format.html { render partial: 'shared/unfollow', status: 200 }
     end
   end
 
@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:id])
     current_user.unfollow(user) if user
     respond_to do |format|
-      format.js { render partial: 'shared/follow' }
+      format.html { render partial: 'shared/follow', status: 200 }
     end
   end
 end
